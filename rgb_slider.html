@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RGB Color Mixer</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .color-box {
+      width: 400px;
+      height: 100px;
+      margin: 20px auto;
+      line-height: 100px;
+      font-weight: bold;
+      color: white;
+    }
+    .slider-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    .slider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Experiment by mixing the RGB values below:</h2>
+  <div id="colorBox" class="color-box">rgb(255, 0, 0)</div>
+
+  <div class="slider-container">
+    <div class="slider">
+      <label>RED</label>
+      <input type="range" id="red" min="0" max="255" value="255" oninput="changeColor()">
+      <span id="valR">255</span>
+    </div>
+    <div class="slider">
+      <label>GREEN</label>
+      <input type="range" id="green" min="0" max="255" value="0" oninput="changeColor()">
+      <span id="valG">0</span>
+    </div>
+    <div class="slider">
+      <label>BLUE</label>
+      <input type="range" id="blue" min="0" max="255" value="0" oninput="changeColor()">
+      <span id="valB">0</span>
+    </div>
+  </div>
+
+  <script>
+    function changeColor() {
+      let r = document.getElementById("red").value;
+      let g = document.getElementById("green").value;
+      let b = document.getElementById("blue").value;
+      let color = `rgb(${r}, ${g}, ${b})`;
+
+      document.getElementById("colorBox").style.backgroundColor = color;
+      document.getElementById("colorBox").textContent = color;
+
+      document.getElementById("valR").textContent = r;
+      document.getElementById("valG").textContent = g;
+      document.getElementById("valB").textContent = b;
+    }
+  </script>
+</body>
+</html>
